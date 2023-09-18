@@ -1,0 +1,77 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Lato&family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&family=Roboto:ital@1&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Add this line to stack the children vertically */
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(161, 238, 213);
+}
+
+.box{
+    width: 600px;
+    min-height: 500px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 15px;
+}
+#item{
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+   
+}
+h2 {
+    font-family: 'Merienda', cursive; /* Using Merienda for a playful look */
+
+    margin-bottom: 20px;
+    font-size: 32px; /* A larger font size for emphasis */
+    color: rgb(3, 36, 248); /* Using the same color as your list item text for cohesion */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+    letter-spacing: 1.2px; /* Adding some spacing between letters for aesthetic */
+}
+
+
+#to-do-box{
+    list-style: none;
+    margin-top: 20px;
+}
+#to-do-box li{
+    position: relative;
+   background-color: rgb(240, 240, 8);
+   color: rgb(3, 36, 248);
+   padding: 10px;
+   border-radius: 2px;
+   padding-right: 30px;
+   text-align: justify;
+}
+#to-do-box li i{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+/* style.css */
+/* style.css */
+#to-do-box li {
+    background-color: rgb(246, 255, 0);
+}
+
+.highlighted {
+    background-color: #f0f0f0;
+    text-decoration: line-through;
+}
+#to-do-box li.highlighted {
+    background-color: #f0f0f0;
+}
+
+

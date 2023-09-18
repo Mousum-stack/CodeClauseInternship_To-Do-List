@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <main>
+        <h2>My To-Do List</h2> <!-- Move this line outside of the .box -->
+        <div class="box"> 
+            <input type="text" id="item" autofocus placeholder="Write Here Something">
+            <ul id="to-do-box">
+                <!-- Empty list; items will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+    </main>
+    <script>
+    const item = document.querySelector("#item")
+const todobox = document.querySelector("#to-do-box")
+
+// Function to add a new task
+function addNewItem(value) {
+    // Create a new li element
+    const li = document.createElement("li");
+
+    // Add task text
+    li.textContent = value;
+
+    // Create close button
+    const closeBtn = document.createElement("i");
+    closeBtn.className = "fa fa-close";
+    closeBtn.addEventListener('click', function() {
+        this.parentElement.remove();
+    });
+
+    // Append close button to li
+    li.appendChild(closeBtn);
+
+    // Append li to the to-do-box
+    todobox.appendChild(li);
+}
+
+// Event listener for adding items
+item.addEventListener("keyup", function(event) {
+    if (event.key === "Enter" && this.value.trim() !== "") {
+        addNewItem(this.value.trim());
+        this.value = "";
+    }
+});
+
+// Event listener for existing close buttons
+document.querySelectorAll("#to-do-box .fa-close").forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.parentElement.remove();
+    });
+});
+// Function to handle item click
+function handleItemClick(event) {
+    // Prevent this function from firing when the close icon is clicked
+    if (event.target.classList.contains("fa-close")) return;
+
+    // Toggle highlighted and strikethrough classes for the clicked list item
+    this.classList.toggle('highlighted');
+    this.classList.toggle('strikethrough');
+    console.log("List item clicked", this);
+}
+
+// Attach event listeners to current and future list items
+todobox.addEventListener('click', function(event) {
+    if (event.target.tagName === "LI") {
+        handleItemClick.call(event.target, event);
+    }
+});
+
+
+// Your existing code remains the same
+
+
+    </script>
+
+</body>
+</html>
