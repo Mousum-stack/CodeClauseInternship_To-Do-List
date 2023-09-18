@@ -42,19 +42,33 @@ h2 {
 }
 
 
-#to-do-box{
+/* Initialize the counter */
+#to-do-box {
     list-style: none;
     margin-top: 20px;
+    counter-reset: listItem;  /* Initializing counter */
 }
-#to-do-box li{
+
+#to-do-box li {
     position: relative;
-   background-color: rgb(240, 240, 8);
-   color: rgb(3, 36, 248);
-   padding: 10px;
-   border-radius: 2px;
-   padding-right: 30px;
-   text-align: justify;
+    background-color: rgb(240, 240, 8);
+    color: rgb(3, 36, 248);
+    padding: 10px;
+    border-radius: 2px;
+    padding-right: 30px;
+    padding-left: 40px;  /* Add left padding to ensure there's space for the serial number */
+    text-align: justify;
+    counter-increment: listItem; /* Increment the counter */
 }
+
+#to-do-box li::before {
+    content: counter(listItem) ". "; /* Display the counter */
+    position: relative;
+    left: -30px; /* Adjust according to your design preference */
+    color: rgb(3, 36, 248); /* Same color as your list text for consistency */
+}
+
+
 #to-do-box li i{
   position: absolute;
   right: 10px;
